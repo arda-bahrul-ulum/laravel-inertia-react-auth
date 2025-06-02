@@ -13,20 +13,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Redirect root path to login page
+Route::get('/', function () {
+    return redirect()->route('login');
+});
+
 //route index register
-Route::get('/register', [\App\Http\Controllers\Auth\RegisterController::class, 'index']);
+Route::get('/register', [\App\Http\Controllers\Auth\RegisterController::class, 'index'])->name('register');
 
 //route store register
 Route::post('/register', [\App\Http\Controllers\Auth\RegisterController::class, 'store']);
 
 //route index login
-Route::get('/login', [\App\Http\Controllers\Auth\LoginController::class, 'index']);
+Route::get('/login', [\App\Http\Controllers\Auth\LoginController::class, 'index'])->name('login');
 
 //route store login
 Route::post('/login', [\App\Http\Controllers\Auth\LoginController::class, 'store']);
 
 //route logout
-Route::post('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'destroy'])->middleware('auth');
+Route::post('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'destroy'])->middleware('auth')->name('logout');
 
 //route dashboard
-Route::get('/dashboard', \App\Http\Controllers\DashboardController::class)->middleware('auth');
+Route::get('/dashboard', \App\Http\Controllers\DashboardController::class)->middleware('auth')->name('dashboard');
