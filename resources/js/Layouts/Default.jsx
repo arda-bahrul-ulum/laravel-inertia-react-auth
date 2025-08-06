@@ -11,7 +11,7 @@ function Layout({ children }) {
     return (
         <>
             <header>
-                <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-success">
+                <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
                     <div className="container">
                         <Link className="navbar-brand" href="/">
                             Laravel Inertia React - Simple Auth
