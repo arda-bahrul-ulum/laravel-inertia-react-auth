@@ -1,64 +1,122 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Laravel Inertia React Auth
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Sistem ini adalah aplikasi autentikasi sederhana berbasis Laravel (backend) dan React (frontend) yang terintegrasi menggunakan Inertia.js. Proyek ini cocok sebagai boilerplate atau pembelajaran untuk membangun aplikasi modern dengan stack Laravel + React tanpa perlu API RESTful secara terpisah.
 
-## About Laravel
+## Deskripsi Sistem
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Aplikasi ini menyediakan fitur:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+-   **Registrasi pengguna** (Register)
+-   **Login dan Logout**
+-   **Dashboard** setelah login
+-   **Proteksi halaman** menggunakan middleware Laravel
+-   **Navigasi SPA** (Single Page Application) dengan Inertia.js
+-   **Notifikasi error** pada proses login/registrasi
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Alur Autentikasi
 
-## Learning Laravel
+1. **Register**: Pengguna mendaftar melalui form, data dikirim ke backend Laravel, divalidasi, dan disimpan ke database.
+2. **Login**: Pengguna mengisi email & password, backend memverifikasi kredensial, dan membuat session.
+3. **Dashboard**: Setelah login, pengguna diarahkan ke halaman dashboard.
+4. **Logout**: Session dihapus, pengguna diarahkan ke halaman login.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Stack & Library yang Digunakan
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Backend (Laravel)
 
-## Laravel Sponsors
+-   **Laravel Framework** ^9.19
+-   **PHP** ^8.0.2
+-   **inertiajs/inertia-laravel**: Integrasi Inertia di Laravel
+-   **laravel/sanctum**: Opsi untuk API token (tidak wajib untuk SPA)
+-   **guzzlehttp/guzzle**: HTTP client
+-   **laravel/tinker**: REPL untuk Laravel
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+### Frontend (React)
 
-### Premium Partners
+-   **React** ^17.0.2
+-   **@inertiajs/inertia**: Library utama Inertia
+-   **@inertiajs/inertia-react**: Adapter React untuk Inertia
+-   **@inertiajs/progress**: Progress bar SPA
+-   **axios**: HTTP client (jika dibutuhkan)
+-   **lodash**: Utility library
+-   **vite**: Build tool modern untuk frontend
+-   **laravel-vite-plugin**: Integrasi Vite dengan Laravel
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+## Struktur Folder Penting
 
-## Contributing
+-   `app/Http/Controllers/Auth/`: Controller untuk login, register, logout
+-   `resources/js/Pages/`: Halaman React (Login, Register, Dashboard)
+-   `resources/js/Layouts/`: Layout utama React
+-   `routes/web.php`: Routing utama Laravel
+-   `resources/js/app.jsx`: Entry point React + Inertia
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Cara Instalasi
 
-## Code of Conduct
+### 1. Clone Repository
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```bash
+git clone <repo-url>
+cd laravel-inertia-react-auth
+```
 
-## Security Vulnerabilities
+### 2. Install Dependency Backend (Laravel)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```bash
+composer install
+```
 
-## License
+### 3. Install Dependency Frontend (React)
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+npm install
+# atau
+yarn install
+```
+
+### 4. Konfigurasi Environment
+
+Copy file `.env.example` menjadi `.env` lalu atur koneksi database dan konfigurasi lain sesuai kebutuhan.
+
+```bash
+cp .env.example .env
+```
+
+Generate app key:
+
+```bash
+php artisan key:generate
+```
+
+### 5. Migrasi Database
+
+```bash
+php artisan migrate
+```
+
+### 6. Menjalankan Server
+
+#### Backend (Laravel)
+
+```bash
+php artisan serve
+```
+
+#### Frontend (Vite)
+
+```bash
+npm run dev
+# atau
+yarn dev
+```
+
+Akses aplikasi di `http://localhost:8000` (atau sesuai output artisan serve).
+
+## Fitur Halaman
+
+-   `/register` — Halaman registrasi
+-   `/login` — Halaman login
+-   `/dashboard` — Dashboard (hanya untuk user yang sudah login)
+
+## Lisensi
+
+MIT License.
