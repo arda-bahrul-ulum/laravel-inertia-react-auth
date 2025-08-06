@@ -14,7 +14,7 @@ function Dashboard() {
     return (
         <>
             <Head>
-                <title>Dashboard - SantriKoding.com</title>
+                <title>Dashboard</title>
             </Head>
             <Layout>
                 <div class="row justify-content-center">
